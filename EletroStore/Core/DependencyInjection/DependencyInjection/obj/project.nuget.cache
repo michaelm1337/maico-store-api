@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "V1bHlAtRgeVxL72p8+yccNGVVZf4zldOdKzvZuEOQ5J1JwrPxspL8C8vEwbp+SfXDZaGmOYxnqsW/FXsqG+yVw==",
+  "success": true,
+  "projectFilePath": "D:\\Dev Stuff\\Study\\EletroStore\\EletroStore\\Core\\DependencyInjection\\DependencyInjection\\DependencyInjection.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.extensions.dependencyinjection.abstractions\\7.0.0\\microsoft.extensions.dependencyinjection.abstractions.7.0.0.nupkg.sha512"
+  ],
+  "logs": []
+}
