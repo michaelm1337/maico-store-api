@@ -1,0 +1,12 @@
+{
+  "version": 2,
+  "dgSpecHash": "Zf9HeoZ2VFoF4TPp+QEFzW/6CgrX7CDDbiFO3oOwpOSA4wT+riZ1G3i/6TdLpFDV2NKnIvZBCY+TmaECj4yqkA==",
+  "success": true,
+  "projectFilePath": "D:\\Dev Stuff\\Study\\MaicoStore\\MaicoStore\\Core\\Application\\Application.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\micha\\.nuget\\packages\\automapper\\12.0.1\\automapper.12.0.1.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\fluentvalidation\\11.8.0\\fluentvalidation.11.8.0.nupkg.sha512",
+    "C:\\Users\\micha\\.nuget\\packages\\microsoft.csharp\\4.7.0\\microsoft.csharp.4.7.0.nupkg.sha512"
+  ],
+  "logs": []
+}
