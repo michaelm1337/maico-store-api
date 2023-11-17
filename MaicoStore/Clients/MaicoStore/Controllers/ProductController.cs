@@ -1,7 +1,5 @@
 ﻿using Application.Product.DTO;
 using Application.Product.Ports;
-using AutoMapper;
-using Domain.Entities;
 using Microsoft.AspNetCore.Mvc;
 
 namespace EletroStoreAPI.Controllers
