@@ -8,7 +8,7 @@ namespace Application.Product.Ports
         Task<Result<ProductDTO>> GetAsync(Guid id);
         Task<Result<List<ProductDTO>>> GetAllAsync();
         Task<Result<bool>> DeleteAsync(Guid id);
-        Task<Result<ProductDTO>> UpdateAsync(ProductDTO productDTO);
-        Task<Result<ProductDTO>> CreateAsync(ProductDTO productDTO);
+        Task<Result<bool>> UpdateAsync(ProductDTO productDTO);
+        Task<Result<bool>> CreateAsync(ProductDTO productDTO);
     }
 }

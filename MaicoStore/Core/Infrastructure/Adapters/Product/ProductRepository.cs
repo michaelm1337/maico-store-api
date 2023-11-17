@@ -12,18 +12,20 @@ namespace Infrastructure.Adapters.Product
             _context = context;
         }
 
-        public async Task<ProductEntity> CreateAsync(ProductEntity entity)
+        public void Create(ProductEntity entity)
         {
-            await _context.Products.AddAsync(entity);
-            await _context.SaveChangesAsync();
-            return entity;
+            _context.Products.Add(entity);
         }
 
-        public async Task<bool> DeleteAsync(Guid id)
+        public bool Delete(Guid id)
         {
-            var product = await _context.Products.FirstAsync(p => p.Id == id);
-            _context.Products.Remove(product);
-            return await _context.SaveChangesAsync() > 0;
+            var product = _context.Products.Find(id);
+            if (product != null)
+            {
+                _context.Products.Remove(product);
+                return true;
+            }
+            return false;
         }
 
         public async Task<List<ProductEntity>> GetAllAsync()
@@ -36,11 +38,14 @@ namespace Infrastructure.Adapters.Product
             return await _context.Products.FirstAsync(p => p.Id == id);
         }
 
-        public async Task<ProductEntity> UpdateAsync(ProductEntity entity)
+        public void Update(ProductEntity entity)
         {
             _context.Products.Update(entity);
-            await _context.SaveChangesAsync();
-            return entity;
+        }
+
+        public Task SaveChangesAsync()
+        {
+            return _context.SaveChangesAsync();
         }
     }
 }

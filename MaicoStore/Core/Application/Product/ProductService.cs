@@ -18,17 +18,17 @@ namespace Application.Product
             _mapper = mapper;
         }
 
-        public async Task<Result<ProductDTO>> CreateAsync(ProductDTO productDTO)
+        public async Task<Result<bool>> CreateAsync(ProductDTO productDTO)
         {
             try
             {
                 var product = _mapper.Map<ProductEntity>(productDTO);
-                var result = await _repository.CreateAsync(product);
-                var dto = _mapper.Map<ProductDTO>(result);
+                _repository.Create(product);
+                await _repository.SaveChangesAsync();
 
-                return new Result<ProductDTO>
+                return new Result<bool>
                 {
-                    Data = dto,
+                    Data = true,
                     Message = "Product successfully created",
                     StatusCode = HttpStatusCode.Created,
                     Success = true
@@ -36,7 +36,7 @@ namespace Application.Product
             }
             catch (Exception ex)
             {
-                return new Result<ProductDTO>
+                return new Result<bool>
                 {
                     Message = ex.InnerException is not null ? ex.InnerException.Message : ex.Message,
                     StatusCode = HttpStatusCode.InternalServerError,
@@ -49,7 +49,8 @@ namespace Application.Product
         {
             try
             {
-                var result = await _repository.DeleteAsync(id);
+                var result = _repository.Delete(id);
+                await _repository.SaveChangesAsync();
 
                 return new Result<bool>
                 {
@@ -134,17 +135,17 @@ namespace Application.Product
             }
         }
 
-        public async Task<Result<ProductDTO>> UpdateAsync(ProductDTO productDTO)
+        public async Task<Result<bool>> UpdateAsync(ProductDTO productDTO)
         {
             try
             {
                 var product = _mapper.Map<ProductEntity>(productDTO);
-                var result = await _repository.UpdateAsync(product);
-                var dto = _mapper.Map<ProductDTO>(result);
+                _repository.Update(product);
+                await _repository.SaveChangesAsync();
 
-                return new Result<ProductDTO>
+                return new Result<bool>
                 {
-                    Data = dto,
+                    Data = true,
                     Message = "Products successfully updated",
                     StatusCode = HttpStatusCode.OK,
                     Success = true
@@ -152,7 +153,7 @@ namespace Application.Product
             }
             catch (Exception ex)
             {
-                return new Result<ProductDTO>
+                return new Result<bool>
                 {
                     Message = ex.InnerException is not null ? ex.InnerException.Message : ex.Message,
                     StatusCode = HttpStatusCode.InternalServerError,
